@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  openvpn:
+    image: ovpn-prox:beta
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+    volumes:
+      # Obligatoire ! Mappage du dossier contenant fichier.ovpn et fichier.auth vers /vpn du conteneur
+      - /chemin/vers/dossier:/vpn
+    environment:
+      - DNS_SERVER=8.8.8.8   # Default DNS server if not provided
+    ports:
+      - "3128:3128" # Squid proxy port
