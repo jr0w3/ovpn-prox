@@ -10,7 +10,8 @@ This is achieved using Docker's volume mapping feature by specifying the full pa
 ex: `/chemin/vers/dossier:/vpn`
 
 Example with Docker Compose:
-```version: '3.8'
+```
+version: '3.8'
 
 services:
   openvpn:
